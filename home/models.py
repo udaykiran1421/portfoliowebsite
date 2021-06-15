@@ -6,4 +6,5 @@ class Contact(models.Model):
     email=models.EmailField(max_length=30)
     phone=models.CharField(max_length=10)
     concern=models.TextField()
-
+    def __str__(self):
+        return self.name
