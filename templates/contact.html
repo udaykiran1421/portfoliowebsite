@@ -41,6 +41,9 @@
         <h2 class="text-center">CONTACT ME</h2>
         <form action="/contact"method="post">
           {% csrf_token %}
+          {% if flag %}
+          <h5 style="color:green;">hello {{ name }} message sent succesfully</h3>
+          {% endif %}
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text"name="name" class="form-control" id="name" placeholder="ex-johnpaul">

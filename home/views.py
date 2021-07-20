@@ -9,6 +9,9 @@ def about(request):
 def projects(request):
     return render(request,"projects.html")
 def contact(request):
+    flag=False
+    if(flag==True):
+        flag=False
     if(request.method=="POST"):
         name=request.POST["name"]
         email=request.POST["email"]
@@ -16,8 +19,9 @@ def contact(request):
         concern=request.POST["concern"] 
         ins=Contact(name=name,email=email,phone=phone,concern=concern)
         ins.save()
-        print("values are inserted")
-    return render(request,"contact.html")
+        flag=True
+        return render(request,"contact.html",{'flag':flag,'name':name})
+    return render(request,"contact.html",{'flag':flag})
 def project1(request):
     return render(request,"project1.html")
 def project2(request):
